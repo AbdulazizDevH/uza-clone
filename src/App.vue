@@ -1,17 +1,16 @@
 <template>
-  <div class="bg-orange-300 hello">
-    Hello
+  <div class="wrapper">
+    <Header />
   </div>
 </template>
 
 <script>
+import Header from "./components/Header.vue";
 export default {
-  
+  components: {
+    Header
+  }
 }
 </script>
 
-<style lang="css">
-  .hello {
-    @apply first-letter:text-slate-900 text-white
-  }
-</style>
+<style lang="scss"></style>
