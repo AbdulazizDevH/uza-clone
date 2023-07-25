@@ -7,39 +7,39 @@
         </a>
       </div>
       <div class="header__column w-[55%] mx-8">
-        <div class="header__column-row py-5 px-1 text-xs flex justify-between items-center">
-          <span class="flex items-center">
+        <div class="header__column-row font-medium py-5 px-1 text-xs flex justify-between items-center">
+          <span>
             {{ getFullDate() }}
-            <b class="font-medium mx-1.5">|</b>
+            |
             <time datetime="2024-01-01">{{ time }}</time>
           </span>
-          <span></span>
+          <span class="text-lg font-bold w-28 flex items-center justify-between">
+            <i class="bi text-[26px] text-blue-800 bi-eyeglasses cursor-pointer"></i>
+            <i class="bi bi-megaphone text-orange-400 cursor-pointer"></i>
+            <i class="bi bi-shuffle cursor-pointer opacity-50"></i>
+          </span>
         </div>
-        <div class="header__column-row flex items-center bg-white px-4 py-2 w-full rounded-md">
-          <i class="bi bi-search opacity-50 text-xl"></i>
-          <input type="text" class="text-sm px-[18px] outline-none py-2.5" placeholder="Sayt bo'ylab izlash">
+        <div class="header__column-row w-full px-4 py-2 relative flex items-center bg-white rounded-md">
+          <i class="absolute left-5 z-0 bi bi-search opacity-50 text-xl"></i>
+          <input type="text" class="z-10 bg-transparent w-full text-sm pl-10 pr-6 outline-none py-2.5" placeholder="Sayt bo'ylab izlash">
         </div>
       </div>
       <div class="header__column w-80">
-        <div class="header__column-row py-2 flex items-center justify-between">
-          <div></div>
-          <div class="header__socially  flex items-center justify-between w-40">
-            <i class="bi bi-facebook"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-instagram"></i>
-            <i class="bi bi-youtube"></i>
-            <i class="bi bi-telegram"></i>
+        <div class="header__column-row py-4 flex items-center justify-between">
+          <span></span>
+          <div class="header__socially text-2xl flex items-center justify-between w-48">
+            <i v-for="icon in sociallyIcon" :class="icon"></i>
           </div>
         </div>
-        <div class="header__column-row flex items-center justify-end py-2">
+        <div class="header__column-row flex items-center justify-end py-[7px]">
           <a href="#" class="header__auth bg-white inline-flex items-center rounded-full border border-[#e2effe]">
             <span class="w-[40px] h-[40px] flex items-center justify-center border text-[#a6c2e2] border-[#e2effe] rounded-full">
               <i class="bi bi-person-circle"></i>
             </span>
-            <span class="px-5 py-3 text-xs">Kabinet</span>
+            <span class="px-6 text-xs">Kabinet</span>
           </a>
           <a href="#" class="header__lang bg-white inline-flex items-center ml-5 rounded-full border border-[#e2effe]">
-            <span class="px-5 py-3 text-xs">O'zbek</span>
+            <span class="px-6 text-xs">O'zbek</span>
             <span class="w-[40px] h-[40px] flex items-center justify-center border text-xs font-bold border-[#e2effe] rounded-full">
               <i class="bi bi-chevron-down"></i>
             </span>
@@ -55,6 +55,13 @@ export default {
   data() {
     return {
       time: "",
+      sociallyIcon: [
+        "bi bi-facebook hover:text-blue-500 cursor-pointer",
+        "bi bi-twitter hover:text-blue-400 cursor-pointer",
+        "bi bi-instagram hover:text-pink-500 cursor-pointer",
+        "bi bi-youtube hover:text-red-600 cursor-pointer",
+        "bi bi-telegram hover:text-blue-400 cursor-pointer",
+      ]
     }
   },
   methods: {
